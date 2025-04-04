@@ -1,13 +1,15 @@
 const mongoose = require('mongoose');
 
-function dbConnection (){
+function connectToDb (){
     try {
-        mongoose.connect(process.env.DB_URL,()=>{
+        mongoose
+        .connect(process.env.DB_URL)
+        .then 
             console.log('DB Connected succesfully')
-        })
+        
     } catch (error) {
         throw(error)
     }
 }
 
-module.exports = dbConnection;
+module.exports = connectToDb;
